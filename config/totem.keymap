@@ -50,11 +50,6 @@
     combos {
         compatible = "zmk,combos";
 
-        Layer3 {
-            bindings = <&mo 3>;
-            key-positions = <32 37>;
-        };
-
         Tilde {
             bindings = <&kp GRAVE>;
             key-positions = <0 1>;
@@ -112,20 +107,20 @@
         Fun {
             display-name = "Fun";
             bindings = <
-        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3      &kp NUMBER_4    &kp N5    &kp NUMBER_6  &kp N7           &kp N8             &kp N9         &kp N0
-        &sk LEFT_GUI  &sk LEFT_ALT  &sk LEFT_CONTROL  &sk LEFT_SHIFT  &trans    &trans        &sk RIGHT_SHIFT  &sk RIGHT_CONTROL  &sk RIGHT_ALT  &sk RIGHT_GUI
-&trans  &kp F1        &kp F2        &kp F3            &kp F4          &kp F5    &trans        &trans           &trans             &trans         &trans         &tog 4
-                                    &trans            &trans          &trans    &trans        &trans           &trans
+            &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3      &kp NUMBER_4    &kp N5     &kp NUMBER_6  &kp N7           &kp N8             &kp N9         &kp N0
+            &sk LEFT_GUI  &sk LEFT_ALT  &sk LEFT_CONTROL  &sk LEFT_SHIFT  &kp F11    &kp F12       &sk RIGHT_SHIFT  &sk RIGHT_CONTROL  &sk RIGHT_ALT  &sk RIGHT_GUI
+&kp DELETE  &kp F1        &kp F2        &kp F3            &kp F4          &kp F5     &kp F6        &kp F7           &kp F8             &kp F9         &kp F10        &tog 4
+                                        &trans            &trans          &trans     &trans        &trans           &trans
             >;
         };
 
         Gaming {
             display-name = "Game";
             bindings = <
-            &kp Z           &kp X  &kp C      &kp V         &sl 5     &trans  &trans  &trans  &trans  &trans
-            &kp TAB         &kp Q  &kp W      &kp E         &kp R     &trans  &trans  &trans  &trans  &trans
-&kp ESCAPE  &kp LEFT_SHIFT  &kp A  &kp S      &kp D         &kp F     &trans  &trans  &trans  &trans  &trans  &trans
-                                   &kp LCTRL  &kp LEFT_ALT  &trans    &trans  &trans  &trans
+            &kp Z           &kp X  &kp C      &kp V         &sl 5        &trans  &trans  &trans  &trans  &trans
+            &kp TAB         &kp Q  &kp W      &kp E         &kp R        &trans  &trans  &trans  &trans  &trans
+&kp ESCAPE  &kp LEFT_SHIFT  &kp A  &kp S      &kp D         &kp F        &trans  &trans  &trans  &trans  &trans  &trans
+                                   &kp LCTRL  &kp LEFT_ALT  &kp SPACE    &trans  &trans  &trans
             >;
         };
 
@@ -137,6 +132,15 @@
 &trans  &to 0    &trans        &trans        &trans        &trans    &trans         &trans         &trans  &trans  &kp F22          &kp LA(F4)
                                &kp J         &kp I         &kp M     &trans         &trans         &trans
             >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        Fun {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 };
